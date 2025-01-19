@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Baby Shower</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <script src="confetti.js" defer></script>
+</head>
+<body>
+    <!-- Texto para tocar el oso -->
+    <p id="instruction-text">Toca el oso para abrir la invitación</p>
+    
+    <!-- Imagen del oso para revelar la invitación y activar la música -->
+    <img id="reveal-button" src="images/oso.png" alt="Toca el oso para abrir la invitación" onclick="revealInvitation()">
+
+    <!-- Reproducir audio en segundo plano -->
+    <audio id="background-audio" src="Audio/tulink.mp3" loop></audio>
+
+    <!-- Invitación oculta -->
+    <div class="container" id="invitation">
+        <h1>¡Estás Invitado al Baby Shower de Lucca!</h1>
+        <p>Únete a nosotros para celebrar la llegada de nuestro pequeño tesoro.</p>
+        <p><strong>Fecha:</strong> 22 de febrero de 2025</p>
+        <p><strong>Hora:</strong> 15:00</p>
+        <p><strong>Dirección:</strong> Calle Piedrabuena 2168, Alvear, Santa Fe</p>
+        <p class="rsvp">Por favor confirma tu asistencia antes del 10 de febrero.</p>
+        <button class="whatsapp-button" onclick="confirmarAsistencia()">Confirmar Asistencia en WhatsApp</button>
+    </div>
+    <div id="confetti-container"></div>
+    <script>
+        function revealInvitation() {
+            const audio = document.getElementById('background-audio');
+            const invitation = document.getElementById('invitation');
+            const revealButton = document.getElementById('reveal-button');
+            const instructionText = document.getElementById('instruction-text');
+            
+            audio.play(); // Reproducir el audio
+            revealButton.style.display = 'none'; // Ocultar la imagen del oso
+            instructionText.style.display = 'none'; // Ocultar el texto de instrucciones
+            invitation.classList.add('show'); // Añadir la clase 'show' para activar la transición
+        }
+
+        function confirmarAsistencia() {
+            const phoneNumber = '5493412735681'; // Número de WhatsApp (código de país + número)
+            const message = '¡Hola! Confirmo mi asistencia al Baby Shower de Lucca.';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('images/background.jpg') no-repeat center center fixed; /* Ajusta la ruta aquí */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    color: #4682B4; /* Color celeste más oscuro */
+    font-family: 'Playfair Display', serif; /* Fuente Playfair Display */
+    font-style: italic; /* Texto en cursiva */
+    font-weight: normal; /* Estilo más ligero */
+    font-size: 2.5em; /* Tamaño de fuente más grande */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra sutil para un toque elegante */
+}
+
+p {
+    font-size: 18px;
+}
+
+#instruction-text {
+    font-size: 25px;
+    color: #4682B4;
+    font-family: 'Playfair Display', serif; /* Misma fuente que el título */
+    margin-bottom: 10px; /* Reducir el margen inferior */
+    margin-top: 210px; /* Ajuste del margen superior */
+    animation: move-animation 2s infinite; /* Añadir animación de movimiento */
+}
+
+@keyframes move-animation {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+.rsvp {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* Color verde de WhatsApp */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s, background-color 0.3s; /* Transiciones para animaciones suaves */
+    animation: move-animation 1.5s infinite; /* Añadir animación de movimiento */
+}
+
+.whatsapp-button:hover {
+    background-color: #1ebea5; /* Color verde más oscuro */
+}
+
+@keyframes move-animation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Mueve el botón hacia arriba */
+    }
+}
+
+#confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    top: -10px;
+    animation: fall linear infinite;
+    opacity: 0; /* Empezar transparente */
+    animation-name: fall, fade; /* Añadir animación de desvanecimiento */
+    animation-timing-function: linear;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Estilo para las mitades de la imagen del oso */
+#reveal-button {
+    position: relative;
+    width: 300px; /* Nuevo tamaño */
+    height: 300px; /* Nuevo tamaño */
+}
+
+#left-half, #right-half {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+}
+
+#left-half {
+    left: 0;
+    clip-path: inset(0 50% 0 0);
+}
+
+#right-half {
+    right: 0;
+    clip-path: inset(0 0 0 50%);
+}
+
+.split-left {
+    animation: splitLeft-animation 1s forwards;
+}
+
+.split-right {
+    animation: splitRight-animation 1s forwards;
+}
+
+@keyframes splitLeft-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes splitRight-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Transición para la carta de invitación */
+#invitation {
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px); /* Empieza ligeramente desplazada hacia arriba */
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out; /* Transición suave */
+}
+
+#invitation.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* La carta vuelve a su posición original */
+}
+
+/* Clase única y descriptiva para la fuente Playfair Display */
+.playfair-display-unique {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
