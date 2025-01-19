@@ -33,7 +33,7 @@ p {
     color: #4682B4;
     font-family: 'Playfair Display', serif; /* Misma fuente que el título */
     margin-bottom: 10px; /* Reducir el margen inferior */
-    margin-top: 210px; /* Ajuste del margen superior */
+    margin-top: 215px; /* Ajuste del margen superior */
     animation: move-animation 2s infinite; /* Añadir animación de movimiento */
 }
 
