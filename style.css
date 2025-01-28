@@ -49,6 +49,12 @@ p {
 .rsvp {
     margin-top: 20px;
     font-weight: bold;
+
+}
+.rsvq {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #FF0000;
 }
 
 .whatsapp-button {
